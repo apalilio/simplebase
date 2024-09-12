@@ -8,10 +8,12 @@ CSS TABLE OF CONTENTS
     # GLOBAL RESETS
     # GLOBAL COLORS
     # GLOBAL TYPOGRAPHY
-    # RESPONSIVE MEDIA 
+    # GLOBAL MEDIA 
 
-
-
+# LAYOUT
+    # MEDIA QUERIES / BREAKPOINTS ( RESPONSIVE TYPOGRAPHY) 
+    # CONTAINER
+    # GRID
 
 
 
@@ -32,6 +34,10 @@ CSS TABLE OF CONTENTS
     /* DEFINE ALL FONTS USED HERE */
     --font-body: Helvetica, Arial, sans-serif;
     --font-headings: Georgia, serif;
+
+    /* SIZING UNITS */
+    --container-width: 1200px;
+
 }
 
 /* GLOBAL RESETS */
@@ -141,3 +147,46 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
+/* LAYOUT */
+
+/* RESPONSIVE TYPOGRAPHY VIA MEDIA QUARIES */
+
+
+/* SMALL SCREENS (MOBILE < 768px) */
+body {
+    /* SET THE DEFAULT FONT SIZE TO 14px */
+    font-size: 87.5%;
+}
+
+/* MEDIUM SCREENS (TABLETS < 1200px) */
+
+@media (min-width: 768px) {
+    body {
+        /* SET THE MEDIA SCREENS AND HIGHER FONT SIZE TO 16px */
+        font-size: 100%;
+    }
+}
+
+/* LARGE SCREENS (LAPTOPS &B DESKTOPS > 1200px) */
+
+@media (min-width: 1200px) {
+    body {
+        /* SET THE LARGE SCREENS AND HIGHER FONT SIZE TO 18px */
+        font-size: 112.5%;
+    }
+}
+
+/* CONTAINER */
+.container {
+    /* SET THE MAX WIDTH OF YOUR SITE (eg 1200px) */
+    max-width: var(--container-width);
+
+
+    /* CENTER THE CONTAINER HORIZONTALLY */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GRID */
