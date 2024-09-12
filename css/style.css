@@ -190,3 +190,48 @@ body {
 }
 
 /* GRID */
+
+.row {
+    --gridgap: 1em;
+}
+
+.row>* {
+    margin-bottom: var(--gridgap);
+}
+
+@media (min-width: 768px) {
+    .row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gridgap);
+    }
+
+    .one-half {
+        grid-column: span 6 / span 6;
+    }
+
+    .one-third {
+        grid-column: span 4 / span 4;
+    }
+
+    .two-thirds {
+        grid-column: span 8 / span 8;
+    }
+
+    .one-fourth {
+        grid-column: span 3 / span 3;
+    }
+
+    .three-fourths {
+        grid-column: span 9 / span 9;
+    }
+
+}
+
+/* FOR DEMO PURPOSES */
+
+.demo>* {
+    background-color: #444;
+    padding: 1em;
+    text-align: center;
+}
