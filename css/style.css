@@ -35,15 +35,26 @@ CSS TABLE OF CONTENTS
 :root {
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    --color-body-background: rgb(0 0 0);
-    --color-text-body: rgba(255 255 255 / .8);
-    --color-text-headings: rgb(255 255 255 / 1);
-    --color-links: rgb(255 255 / .8);
-    --color-links-hover: rgb(255 255 / 1);
+    --color-body-background: rgb(255 255 255);
+    --color-text-body: rgba(0 0 0 / .8);
+    --color-text-headings: rgb(0 0 0  / 1);
+
+    --color-links: rgb(0 0 153/ .8);
+    --color-links-hover: rgb(0 0 153 / 1);
+
     --color-siteheader-background: transparent;
     --color-siteheader-links: rgb(255 255 255);
+
     --color-hero-background: rgb(100 100 100);
+    --color-hero-text: rgb(255 255 255);
+    --color-hero-headings: rgb(255 255 255 / 1);
+
     --color-sitefooter-background: rgb(100 100 100);
+    --color-sitefooter-text: rgb(255 255 255 / .8);
+    --color-sitefooter-headings: rgb( 255 255 255 / 1);
+    --color-sitefooter-links: rgb(255 255 255);
+
+
 
 
     /* DEFINE ALL FONTS USED HERE */
@@ -380,22 +391,43 @@ section {
     padding: var(--unit-large) var(--unit-small);
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero {
     background-color: var(--color-hero-background);
+    color: var (--color-hero-text);
+
 
     /* ADD MORE SPACE TO TOP FOR ABSOLUTE HEADER */
     padding-top: calc(4em + var(--unit-large));
+
+    h1, h2, h3 {
+        color: var(--color-hero-headings);
+    }
+
+    p {
+        color: var(--color-hero-text);
+    }
 }
+
+
 
 
 /* SITE FOOTER */
 .site-footer {
     background-color: var(--color-sitefooter-background);
+    color: var(--color-sitefooter-text);
 
     /*  ADD SOME GENERAL PADDING AROUND THE FOOTER */
     padding: var(--unit-small);
+
+    h1, h2, h3 {
+        color: var(--color-sitefooter-headings);
+    }
+
+    a {
+        color: var(--sitefooter-links);
+    }
 
     .site-nav {
         ul {
