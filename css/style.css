@@ -20,8 +20,10 @@ CSS TABLE OF CONTENTS
     # HEADER
         # LOGO
         # SITE NAV
+        # SITE-HEADER-ON-TOP-OF-HERO
     # MAIN
         # SECTION
+            # HERO
     # FOOTER
 
 # UI COMPONETS
@@ -53,7 +55,7 @@ CSS TABLE OF CONTENTS
     --color-siteheader-links: rgb(255 255 255);
 
     --color-hero-background: rgb(100 100 100);
-    --color-hero-text: rgb(255 255 255);
+    --color-hero-text: rgb(255 255 255 / .8);
     --color-hero-headings: rgb(255 255 255 / 1);
 
     --color-sitefooter-background: rgb(100 100 100);
@@ -66,7 +68,7 @@ CSS TABLE OF CONTENTS
 
     /* DEFINE ALL FONTS USED HERE */
     --font-body: system-ui, Helvetica, Arial, sans-serif;
-    --font-headings: Georgia, serif;
+    --font-headings: system-ui, Helvetica, Arial, sans-serif;
 
     /* SIZING UNITS */
     --container-width: 1200px;
@@ -171,7 +173,7 @@ p {
     /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
     max-width: 65ch;
 
-    /* NEW SXHOOL WIDOW SLAYER */
+    /* NEW SCHOOL WIDOW SLAYER */
     text-wrap: pretty;
 }
 
@@ -314,9 +316,9 @@ body {
 
 /* ---------SITE STRUCTURE----------- */
 
-body {
+/* body {
     display: grid;
-}
+} */
 
 /* SITE HEADER */
 .site-header {
@@ -332,22 +334,17 @@ body {
     /* ADD SOME GENERAL SPACING/PADDING AROUND THE HEADER */
     padding: var(--unit-small);
 
-    /* RENDER HEADER ON TOP OF HERO ON LARGE SCREENS */
-    @media (min-width: 768px) {
-    position: absolute;
-    width: 100%
-}
 
     /* when doing position absulote, always remember to add width */
-    width: 100%;
-
+    /* width: 100%; */
 
 
     /* REMOVE LINK UNDERLINE AND SET SITE LINK COLOR */
     a {
-        color: var(--color-siteheader-links);
         text-decoration: none;
     }
+
+
 
     /* SITE LOGO */
 
@@ -356,6 +353,7 @@ body {
         /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
         display: flex;
         align-items: center;
+        justify-content: ceenter;
         gap: 1em;
 
         /* REMOVES MARGINS AND RESIZE H1 INSIDE HEADER */
@@ -364,9 +362,11 @@ body {
             margin: 0;
             text-wrap: nowrap;
         }
+
     }
 
     /* SITE NAV */
+
     .site-nav {
 
         /* REMOVE MATRGINS & BULLETS FROM THE LIST */
@@ -374,11 +374,14 @@ body {
             margin: 0;
             padding: 0;
             list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
 
             /* DISPLAY CHILDREN SIDE-BY-SIDE ON LARGE SCREEN */
-            @media (min-width: 768px) {
+            /* @media (min-width: 768px) {
                 display: flex;
-            }
+            } */
 
             /*  MAKE SITE NAV LINKS BIG LIKE BUTTONS */
             a {
@@ -390,8 +393,31 @@ body {
 
 }
 
+
+/*  PLACE SITE HEADER ON TOP OF HERO */
+.site-header.on-top-of-hero {
+    @media (min-width: 768px) {
+
+        /* RENDER HEADER ON TOP OF HERO ON LARGE SCREENS */
+            position: absolute;
+            width: 100%;
+        
+        /*  SET SITE HEADER LINK COLOR ON LARGE SCREENS */
+        a {
+            color: var(--color-siteheader-links);
+        }
+        
+        /* ADD MORE SPACE ON TOP FOR ABSOLUTE HEADER */
+        & + .site-main > .hero {
+            padding-top: calc(4em + var(--unit-large));
+        }
+    }
+}
+
+
 /* SITE MAIN */
-.site-main {}
+.site-main {
+}
 
 /* SECTION */
 section {
@@ -404,13 +430,12 @@ section {
     background-color: var(--color-hero-background);
     color: var (--color-hero-text);
 
-
-    /* ADD MORE SPACE TO TOP FOR ABSOLUTE HEADER */
-    padding-top: calc(4em + var(--unit-large));
-
     h1, h2, h3 {
         color: var(--color-hero-headings);
     }
+    /* ADD MORE SPACE TO TOP FOR ABSOLUTE HEADER */
+    /* padding-top: calc(4em + var(--unit-large)); */
+
 
     p {
         color: var(--color-hero-text);
