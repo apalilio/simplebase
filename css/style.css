@@ -32,6 +32,14 @@ CSS TABLE OF CONTENTS
     # CARDS
 
 
+# ANIMATION 
+    # SMOOTH SCROLLING 
+
+
+# CUSTOM STYLING 
+
+
+
 -------------------------------
 ------------------------------*/
 
@@ -142,8 +150,9 @@ h1,
 h2,
 h3 {
 
-    /* SET THE FONT FOR ALL HEADINGS */
+    /* SET THE FONT AND MARGIN FOR ALL HEADINGS */
     font-family: var(--font-headings);
+    margin: .4em 0;
 }
 
 h1 {
@@ -361,6 +370,10 @@ body {
         align-items: center;
         justify-content: ceenter;
         gap: 1em;
+        
+
+        /*  PLACE LOGO ON TGOP OF DRAWER MENU */
+        z-index: 100;
 
         /* REMOVES MARGINS AND RESIZE H1 INSIDE HEADER */
         h1 {
@@ -395,7 +408,7 @@ body {
                 display: block;
                 padding: 1em;
             }
-        }
+    }
 }
 
 /* TOGGLE MENU */
@@ -404,10 +417,11 @@ body {
 .site-menu-button {
     display: none;
 }
+
 .toggle-menu {
 
     --color-togglemenu-background: rgb(226, 197, 255);
-    --color-togglemenu-text: rgb(248, 213, 182);
+    --color-togglemenu-text: rgb(255, 237, 222);
 
     display: flex;
     flex-direction: row-reverse;
@@ -421,7 +435,7 @@ body {
         color: var(--color-siteheader-links);
         padding: .5em;
         position: relative;
-        z-index: fixed;
+        z-index: 100;
 
         /* REST THE FONT SIZE */
         font-size: inherit;
@@ -446,6 +460,12 @@ body {
             svg {
                 fill: var(--color-siteheader-links);
             }
+
+            /* ADD SUIPPORT TO SVG ANIMATION */
+            svg > * {
+                transition: all .2s ease-out;
+                transform-origin: center;
+            }
         }
 
     }
@@ -461,6 +481,7 @@ body {
         top: 0;
         right: 0; 
         width: 100%;
+        z-index: 50;
         min-height: 100svh;
         flex-direction: column;
         justify-content: center;
@@ -477,6 +498,10 @@ body {
 
                 
     &[data-menustate="open"] {
+
+        /*  CHANGE COLORS TO TOGGLE MENU COLORS */
+        --color-siteheader-links: var(--color-togglemenu-tewxt);
+        
         /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
         .site-menu-button {
             position: fixed;
@@ -486,6 +511,24 @@ body {
         /* SHOW THE SITE MENU WHEN OPEN */
         .site-menu {
         transform: translateX(0);
+        }
+
+        /* ANIMATE THE NAVICON / HAMBURTGER TO AN X */
+        .site-menu-button svg {
+
+            .simple-navicon-top {
+                rotate: 45deg;
+                translate: -21% 25%;
+            }
+
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+
+            .simple-navicon-bottom {
+                rotate: -45deg;
+                translate: -21% -25%
+            }
         }
     }
 
@@ -540,6 +583,11 @@ section {
 .hero {
     background-color: var(--color-hero-background);
     color: var (--color-hero-text);
+
+    /* SET HERO H1 TO BE JUMBO */
+    h1 {
+        font-size: 4em;
+    }
 
     h1, h2, h3 {
         color: var(--color-hero-headings);
@@ -612,7 +660,7 @@ section {
     }
 
 
-    /* LIGHT BUTTON VARIANT */
+    /* ADD LIGHT BUTTON VARIANT */
     &.light {
         border-color: var(--color-links-light);
         background-color: var(--color-links-light);
@@ -624,4 +672,13 @@ section {
         }
     }
 
+}
+
+
+/* ---------ANIMATION----------- */
+
+/*  ADD SUPPORT FOR SMOOTH SCROOL */
+
+html {
+    scroll-behavior: smooth;
 }
